@@ -3,26 +3,22 @@ import { Image } from 'astro:assets';
 import logo from '../assets/images/logo.png';
 ---
 
-<nav style="position:sticky; top:0; z-index:100; background:white; border-bottom:1px solid #F0E6EA; box-shadow:0 1px 8px rgba(0,0,0,0.06);">
-  <div style="max-width:1280px; margin:0 auto; padding:0 3rem; display:flex; align-items:center; justify-content:space-between; height:72px;">
-    <a href="/" style="display:flex; align-items:center; text-decoration:none;">
-      <Image src={logo} alt="Caro Sweet Mua" width={130} height={44} style="object-fit:contain;" loading="eager" />
+<nav class="sticky top-0 z-[100] bg-white border-b border-[#F0E6EA] shadow-[0_1px_8px_rgba(0,0,0,0.06)]">
+  <div class="max-w-7xl mx-auto px-12 flex items-center justify-between h-[72px]">
+    <a href="/" class="flex items-center no-underline">
+      <Image src={logo} alt="Caro Sweet Mua" width={130} height={44} class="object-contain" loading="eager" />
     </a>
-    <div style="display:flex; align-items:center; gap:2rem;" class="nav-links-desktop">
-      <a href="#servicios" style="text-decoration:none; color:rgba(51,51,51,0.69); font-size:0.9rem; font-weight:500;" onmouseover="this.style.color='#E01A4F'" onmouseout="this.style.color='rgba(51,51,51,0.69)'">Servicios</a>
-      <a href="#galeria" style="text-decoration:none; color:rgba(51,51,51,0.69); font-size:0.9rem; font-weight:500;" onmouseover="this.style.color='#E01A4F'" onmouseout="this.style.color='rgba(51,51,51,0.69)'">Galería</a>
-      <a href="#testimonios" style="text-decoration:none; color:rgba(51,51,51,0.69); font-size:0.9rem; font-weight:500;" onmouseover="this.style.color='#E01A4F'" onmouseout="this.style.color='rgba(51,51,51,0.69)'">Testimonios</a>
-      <a href="#contacto" style="text-decoration:none; color:rgba(51,51,51,0.69); font-size:0.9rem; font-weight:500;" onmouseover="this.style.color='#E01A4F'" onmouseout="this.style.color='rgba(51,51,51,0.69)'">Contacto</a>
+    <div class="flex items-center gap-8 nav-links-desktop">
+      <a href="#servicios" class="no-underline text-text/69 text-[0.9rem] font-medium transition-colors duration-200 hover:text-primary">Servicios</a>
+      <a href="#galeria" class="no-underline text-text/69 text-[0.9rem] font-medium transition-colors duration-200 hover:text-primary">Galería</a>
+      <a href="#testimonios" class="no-underline text-text/69 text-[0.9rem] font-medium transition-colors duration-200 hover:text-primary">Testimonios</a>
+      <a href="#contacto" class="no-underline text-text/69 text-[0.9rem] font-medium transition-colors duration-200 hover:text-primary">Contacto</a>
     </div>
     <a href="#contacto"
-      style="display:flex; align-items:center; gap:8px; background:#E01A4F; color:white; text-decoration:none; padding:0 24px; border-radius:21px; font-size:0.875rem; font-weight:700; height:42px; white-space:nowrap; transition:background 0.2s;"
-      onmouseover="this.style.background='#c01543'" onmouseout="this.style.background='#E01A4F'"
-      class="nav-cta-btn">
-      <!-- message-circle lucide -->
+      class="flex items-center gap-2 bg-primary text-white no-underline px-6 rounded-[21px] text-[0.875rem] font-bold h-[42px] whitespace-nowrap transition-colors duration-200 hover:bg-[#c01543] nav-cta-btn">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
       Reservar cita
     </a>
-    <!-- Hamburger button -->
     <button id="hamburger-btn" class="hamburger-btn" aria-label="Menú" aria-expanded="false">
       <span class="ham-bar"></span>
       <span class="ham-bar"></span>
@@ -37,7 +33,7 @@ import logo from '../assets/images/logo.png';
   <a href="#galeria" class="mobile-nav-link">Galería</a>
   <a href="#testimonios" class="mobile-nav-link">Testimonios</a>
   <a href="#contacto" class="mobile-nav-link">Contacto</a>
-  <a href="#contacto" style="display:flex; align-items:center; justify-content:center; gap:8px; background:#E01A4F; color:white; text-decoration:none; padding:0.8rem; border-radius:21px; font-size:0.9rem; font-weight:700; margin-top:0.5rem;">
+  <a href="#contacto" class="flex items-center justify-center gap-2 bg-primary text-white no-underline py-[0.8rem] rounded-[21px] text-[0.9rem] font-bold mt-2 hover:bg-[#c01543] transition-colors duration-200">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
     Reservar cita
   </a>

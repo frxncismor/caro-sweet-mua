@@ -5,15 +5,15 @@ import card2Img from '../assets/images/generated-1775187046111.png';
 import card3Img from '../assets/images/generated-1775187063488.png';
 ---
 
-<section id="servicios" style="background:#FDFAFA; padding:5rem 3rem;">
-  <div style="max-width:1280px; margin:0 auto;">
-    <div style="text-align:center; margin-bottom:3rem;">
-      <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.18em; color:#E8B4B8; margin:0 0 0.75rem; text-transform:uppercase;">NUESTROS SERVICIOS</p>
-      <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; color:#1A1A1A; margin:0;">
+<section id="servicios" class="bg-bg py-20 px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-[0.72rem] font-semibold tracking-[0.18em] text-light-pink m-0 mb-3 uppercase">NUESTROS SERVICIOS</p>
+      <h2 class="font-serif text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark m-0">
         Todo lo que necesitas para lucir espectacular
       </h2>
     </div>
-    <div class="services-grid">
+    <div class="grid grid-cols-3 gap-6 max-[900px]:grid-cols-1">
       <ServiceCard
         image={card1Img}
         imageAlt="Maquillaje profesional"
@@ -48,16 +48,3 @@ import card3Img from '../assets/images/generated-1775187063488.png';
     </div>
   </div>
 </section>
-
-<style>
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  @media (max-width: 900px) {
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

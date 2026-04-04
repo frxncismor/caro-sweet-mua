@@ -16,24 +16,35 @@ interface Props {
 const { image, imageAlt, category, categoryColor, categoryBg, title, description, price, dark = false } = Astro.props;
 ---
 
-<div style={dark ? "background:#333333; border-radius:1rem; overflow:hidden; display:flex; flex-direction:column;" : "border:1.5px solid #F0E6EA; border-radius:1rem; overflow:hidden; display:flex; flex-direction:column; transition:box-shadow 0.2s;"} onmouseover={dark ? undefined : "this.style.boxShadow='0 8px 30px rgba(224,26,79,0.12)'"} onmouseout={dark ? undefined : "this.style.boxShadow='none'"}>
-  <div style="height:260px; overflow:hidden; position:relative;">
-    <Image src={image} alt={imageAlt} style="width:100%; height:100%; object-fit:cover; display:block;" />
+<div class:list={[
+  "rounded-2xl overflow-hidden flex flex-col",
+  dark
+    ? "bg-dark"
+    : "border-[1.5px] border-[#F0E6EA] transition-shadow duration-200 hover:shadow-[0_8px_30px_rgba(224,26,79,0.12)]"
+]}>
+  <div class="h-[260px] overflow-hidden relative">
+    <Image src={image} alt={imageAlt} class="w-full h-full object-cover block" />
     {dark && (
-      <div style="position:absolute; top:1rem; right:1rem; background:#E01A4F; color:white; font-size:0.65rem; font-weight:700; padding:0.3rem 0.7rem; border-radius:9999px; letter-spacing:0.08em;">MEJOR VALOR</div>
+      <div class="absolute top-4 right-4 bg-primary text-white text-[0.65rem] font-bold px-3 py-[0.3rem] rounded-full tracking-[0.08em]">MEJOR VALOR</div>
     )}
   </div>
-  <div style="padding:1.5rem; display:flex; flex-direction:column; gap:0.75rem; flex:1;">
-    <div style={`display:inline-flex; align-items:center; background:${categoryBg}; border-radius:9999px; padding:0.2rem 0.75rem; width:fit-content;`}>
-      <span style={`font-size:0.7rem; font-weight:600; color:${categoryColor}; letter-spacing:0.06em; text-transform:uppercase;`}>{category}</span>
+  <div class="p-6 flex flex-col gap-3 flex-1">
+    <!-- category badge: bg and color are dynamic runtime props — keep style= -->
+    <div class="inline-flex items-center rounded-full px-3 py-1 w-fit" style={`background:${categoryBg};`}>
+      <span class="text-[0.7rem] font-semibold uppercase tracking-[0.06em]" style={`color:${categoryColor};`}>{category}</span>
     </div>
-    <h3 style={`font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:700; color:${dark ? 'white' : '#1A1A1A'}; margin:0;`}>{title}</h3>
-    <p style={`font-size:0.9rem; color:${dark ? 'rgba(255,255,255,0.7)' : '#555'}; margin:0; line-height:1.6;`}>{description}</p>
-    <div style={`margin-top:auto; padding-top:1rem; border-top:1px solid ${dark ? 'rgba(255,255,255,0.1)' : '#F0E6EA'};`}>
-      <span style={`font-size:0.78rem; color:${dark ? 'rgba(255,255,255,0.5)' : '#999'};`}>Desde</span>
-      <p style={`font-family:'Playfair Display',serif; font-size:1.75rem; font-weight:700; color:${dark ? '#E8B4B8' : '#E01A4F'}; margin:0;`}>{price}</p>
+    <h3 class:list={["font-serif text-xl font-bold m-0", dark ? "text-white" : "text-dark"]}>{title}</h3>
+    <p class:list={["text-[0.9rem] m-0 leading-[1.6]", dark ? "text-white/70" : "text-[#555]"]}>{description}</p>
+    <div class:list={["mt-auto pt-4 border-t", dark ? "border-white/10" : "border-[#F0E6EA]"]}>
+      <span class:list={["text-[0.78rem]", dark ? "text-white/50" : "text-[#999]"]}>Desde</span>
+      <p class:list={["font-serif text-[1.75rem] font-bold m-0", dark ? "text-light-pink" : "text-primary"]}>{price}</p>
     </div>
-    <button type="button" data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado" data-cal-namespace="peinado" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' style="display:block; width:100%; background:#E01A4F; color:white; border:none; padding:0.65rem; border-radius:9999px; font-size:0.875rem; font-weight:600; text-align:center; transition:background 0.2s; cursor:pointer;" onmouseover="this.style.background='#c01543'" onmouseout="this.style.background='#E01A4F'">
+    <button
+      type="button"
+      data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado"
+      data-cal-namespace="peinado"
+      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+      class="block w-full bg-primary text-white border-none py-[0.65rem] rounded-full text-[0.875rem] font-semibold text-center transition-colors duration-200 cursor-pointer hover:bg-[#c01543]">
       Reservar
     </button>
   </div>

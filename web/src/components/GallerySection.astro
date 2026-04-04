@@ -1,15 +1,15 @@
 ---
 ---
 
-<section id="galeria" style="background:white; padding:5rem 3rem;">
-  <div style="max-width:1280px; margin:0 auto;">
-    <div style="text-align:center; margin-bottom:2.5rem;">
-      <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.18em; color:#C0737A; margin:0 0 0.5rem; text-transform:uppercase;">NUESTRO TRABAJO</p>
-      <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; font-style:italic; color:#1A1A1A; margin:0 0 0.4rem;">Galería</h2>
-      <p style="font-size:0.95rem; color:#999; margin:0;">Cada look cuenta una historia</p>
+<section id="galeria" class="bg-white py-20 px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-10">
+      <p class="text-[0.72rem] font-semibold tracking-[0.18em] text-muted-pink m-0 mb-2 uppercase">NUESTRO TRABAJO</p>
+      <h2 class="font-serif text-[clamp(1.8rem,3vw,2.5rem)] font-bold italic text-dark m-0 mb-[0.4rem]">Galería</h2>
+      <p class="text-[0.95rem] text-[#999] m-0">Cada look cuenta una historia</p>
     </div>
     <!-- Filter pills -->
-    <div style="display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; margin-bottom:2.5rem;" id="gallery-filters">
+    <div class="flex flex-wrap gap-[0.6rem] justify-center mb-10" id="gallery-filters">
       <button class="filter-pill active" data-filter="all">Todos</button>
       <button class="filter-pill" data-filter="social">💄 Maquillaje Social</button>
       <button class="filter-pill" data-filter="natural">✨ Natural</button>
@@ -23,16 +23,16 @@
 </section>
 
 <!-- LIGHTBOX MODAL -->
-<div id="lightbox" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.92); align-items:center; justify-content:center;">
-  <button id="lb-close" style="position:absolute; top:1.5rem; right:1.5rem; background:rgba(255,255,255,0.1); border:none; border-radius:50%; width:44px; height:44px; cursor:pointer; color:white; font-size:1.5rem; display:flex; align-items:center; justify-content:center; transition:background 0.2s;">✕</button>
-  <button id="lb-prev" style="position:absolute; left:1.5rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.1); border:none; border-radius:50%; width:52px; height:52px; cursor:pointer; color:white; font-size:1.5rem; display:flex; align-items:center; justify-content:center; transition:background 0.2s;">‹</button>
-  <button id="lb-next" style="position:absolute; right:1.5rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.1); border:none; border-radius:50%; width:52px; height:52px; cursor:pointer; color:white; font-size:1.5rem; display:flex; align-items:center; justify-content:center; transition:background 0.2s;">›</button>
-  <div id="lb-content" style="max-width:90vw; max-height:88vh; display:flex; align-items:center; justify-content:center;">
+<div id="lightbox" class="hidden fixed inset-0 z-[1000] bg-black/[0.92] items-center justify-center">
+  <button id="lb-close" class="absolute top-6 right-6 bg-white/10 border-none rounded-full w-11 h-11 cursor-pointer text-white text-2xl flex items-center justify-center transition-colors duration-200 hover:bg-white/20">✕</button>
+  <button id="lb-prev" class="absolute left-6 top-1/2 -translate-y-1/2 bg-white/10 border-none rounded-full w-[52px] h-[52px] cursor-pointer text-white text-2xl flex items-center justify-center transition-colors duration-200 hover:bg-white/20">‹</button>
+  <button id="lb-next" class="absolute right-6 top-1/2 -translate-y-1/2 bg-white/10 border-none rounded-full w-[52px] h-[52px] cursor-pointer text-white text-2xl flex items-center justify-center transition-colors duration-200 hover:bg-white/20">›</button>
+  <div id="lb-content" class="max-w-[90vw] max-h-[88vh] flex items-center justify-center">
     <!-- img intencional: src asignado dinámicamente por JS en runtime, no aplica <Image> de Astro -->
-    <img id="lb-img" src="" alt="" style="max-width:100%; max-height:88vh; border-radius:0.75rem; object-fit:contain; display:none;" />
-    <video id="lb-video" src="" controls style="max-width:100%; max-height:88vh; border-radius:0.75rem; display:none;"></video>
+    <img id="lb-img" src="" alt="" class="max-w-full max-h-[88vh] rounded-xl object-contain hidden" />
+    <video id="lb-video" src="" controls class="max-w-full max-h-[88vh] rounded-xl hidden"></video>
   </div>
-  <div id="lb-counter" style="position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%); color:white; font-size:0.85rem; font-weight:500; letter-spacing:0.05em; pointer-events:none;"></div>
+  <div id="lb-counter" class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-[0.85rem] font-medium tracking-[0.05em] pointer-events-none"></div>
 </div>
 
 <style is:global>
@@ -240,34 +240,36 @@
   function openLightbox(items, idx) {
     lbItems = items; lbIdx = idx;
     showLb();
-    lightbox.style.display = 'flex';
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
     document.body.style.overflow = 'hidden';
   }
 
   function closeLightbox() {
-    lightbox.style.display = 'none';
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
     document.body.style.overflow = '';
     lbVideo.pause();
     lbVideo.src = '';
     lbImg.src = '';
-    lbImg.style.display = 'none';
-    lbVideo.style.display = 'none';
+    lbImg.classList.add('hidden');
+    lbVideo.classList.add('hidden');
   }
 
   function showLb() {
     const item = lbItems[lbIdx];
     if (!item) return;
     if (item.type === 'video') {
-      lbImg.style.display = 'none'; lbImg.src = '';
+      lbImg.classList.add('hidden'); lbImg.src = '';
       lbVideo.src = item.src;
-      lbVideo.style.display = 'block';
+      lbVideo.classList.remove('hidden');
       lbVideo.play();
     } else {
       lbVideo.pause(); lbVideo.src = '';
-      lbVideo.style.display = 'none';
+      lbVideo.classList.add('hidden');
       lbImg.src = item.src;
       lbImg.alt = item.alt || '';
-      lbImg.style.display = 'block';
+      lbImg.classList.remove('hidden');
     }
     document.getElementById('lb-prev').style.visibility = lbIdx > 0 ? 'visible' : 'hidden';
     document.getElementById('lb-next').style.visibility = lbIdx < lbItems.length - 1 ? 'visible' : 'hidden';

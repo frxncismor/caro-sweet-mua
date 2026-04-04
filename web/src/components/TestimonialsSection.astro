@@ -5,37 +5,24 @@ import conv2 from '../assets/images/conversation (2).png';
 import conv3 from '../assets/images/conversation (3).png';
 ---
 
-<section id="testimonios" style="background:#FDFAFA; padding:5rem 3rem;">
-  <div style="max-width:1280px; margin:0 auto;">
-    <div style="text-align:center; margin-bottom:3rem;">
-      <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.18em; color:#E8B4B8; margin:0 0 0.75rem; text-transform:uppercase;">TESTIMONIOS REALES</p>
-      <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; color:#1A1A1A; margin:0;">
+<section id="testimonios" class="bg-bg py-20 px-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-[0.72rem] font-semibold tracking-[0.18em] text-light-pink m-0 mb-3 uppercase">TESTIMONIOS REALES</p>
+      <h2 class="font-serif text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark m-0">
         Clientas que ya lucen radiantes
       </h2>
     </div>
-    <div class="testimonials-grid">
-      <div style="border-radius:1rem; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-        <Image src={conv1} alt="Reseña de clienta — WhatsApp" style="width:100%; display:block;" />
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
+        <Image src={conv1} alt="Reseña de clienta — WhatsApp" class="w-full block" />
       </div>
-      <div style="border-radius:1rem; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-        <Image src={conv2} alt="Reseña de clienta — WhatsApp" style="width:100%; display:block;" />
+      <div class="rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
+        <Image src={conv2} alt="Reseña de clienta — WhatsApp" class="w-full block" />
       </div>
-      <div style="border-radius:1rem; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-        <Image src={conv3} alt="Reseña de clienta — WhatsApp" style="width:100%; display:block;" />
+      <div class="rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
+        <Image src={conv3} alt="Reseña de clienta — WhatsApp" class="w-full block" />
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  @media (max-width: 900px) {
-    .testimonials-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
