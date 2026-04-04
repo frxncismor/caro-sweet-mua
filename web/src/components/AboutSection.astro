@@ -3,25 +3,26 @@ import { Image } from 'astro:assets';
 import caroAbout from '../assets/images/caro_3.jpg';
 ---
 
-<section id="about" class="py-32 overflow-hidden reveal">
-  <div class="container mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+<section id="about" class="py-20 md:py-32 overflow-hidden">
+  <div class="container mx-auto px-6 grid md:grid-cols-2 gap-10 md:gap-20 items-center">
     <!-- Left: photo -->
     <div class="reveal-left">
       <Image
         src={caroAbout}
-        alt="Carolina — Makeup & Hair Artist en Houston"
+        alt="Carolina — Makeup & Hair Artist en Monterrey, N.L."
         class="w-full aspect-square object-cover rounded-xl shadow-2xl grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+        loading="lazy"
       />
     </div>
 
     <!-- Right: content -->
-    <div class="flex flex-col gap-6 reveal-right reveal-delay-1">
+    <div class="flex flex-col gap-5 md:gap-6 reveal-right reveal-delay-1">
       <p class="text-primary font-semibold tracking-widest uppercase text-sm font-label m-0">Sobre Mí</p>
       <h2 class="font-headline font-bold text-on-surface text-[clamp(1.8rem,3vw,2.4rem)] m-0">
         Hola, soy Caro ✨
       </h2>
       <p class="text-on-surface-variant font-body text-base leading-relaxed m-0">
-        Soy Carolina, makeup & hair artist con más de 3 años transformando looks en Houston, TX. Me especializo en crear el maquillaje que siempre soñaste: duradero, fotogénico y completamente tuyo.
+        Soy Carolina, makeup & hair artist con más de 3 años transformando looks en Monterrey, N.L. Me especializo en crear el maquillaje que siempre soñaste: duradero, fotogénico y completamente tuyo.
       </p>
       <p class="text-on-surface-variant font-body text-base leading-relaxed m-0">
         Mi enfoque es editorial pero accesible — quiero que cada clienta se sienta la mejor versión de sí misma. Desde novias hasta looks del día a día, cada cita es única.
@@ -30,16 +31,16 @@ import caroAbout from '../assets/images/caro_3.jpg';
       <!-- Checklist -->
       <div class="flex flex-col gap-3">
         <div class="flex items-center gap-3">
-          <span class="material-symbols-outlined text-primary text-xl" aria-hidden="true">check_circle</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8e4c35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
           <span class="text-on-surface font-body text-sm">Técnicas certificadas de maquillaje editorial</span>
         </div>
         <div class="flex items-center gap-3">
-          <span class="material-symbols-outlined text-primary text-xl" aria-hidden="true">check_circle</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8e4c35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
           <span class="text-on-surface font-body text-sm">Productos premium: MAC, Charlotte Tilbury, NARS</span>
         </div>
         <div class="flex items-center gap-3">
-          <span class="material-symbols-outlined text-primary text-xl" aria-hidden="true">check_circle</span>
-          <span class="text-on-surface font-body text-sm">Servicio en Houston y área metropolitana de Texas</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8e4c35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+          <span class="text-on-surface font-body text-sm">Servicio en Monterrey y área metropolitana de N.L.</span>
         </div>
       </div>
 
