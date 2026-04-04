@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import heroImg from '../assets/images/generated-1775198929226.png';
+---
+
+<section style="display:grid; grid-template-columns:60% 40%; height:640px; background:#FFF0F5;" class="hero-section">
+  <!-- Left: photo -->
+  <div style="position:relative; overflow:hidden; height:640px;">
+    <Image src={heroImg} alt="Maquillaje profesional Monterrey" style="width:100%; height:100%; object-fit:cover; display:block;" loading="eager" />
+    <!-- Social badge – absolute bottom-left -->
+    <div style="position:absolute; bottom:28px; left:24px; background:white; border-radius:18px; padding:0 16px; display:flex; align-items:center; gap:8px; height:36px; box-shadow:0 4px 16px rgba(0,0,0,0.12); font-size:13px; font-weight:600; color:#1A1A1A;">
+      <!-- star lucide -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#F5A623" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      4.9 · +200 clientas felices
+    </div>
+  </div>
+
+  <!-- Right: content -->
+  <div style="display:flex; flex-direction:column; justify-content:center; padding:56px 48px 56px 56px; gap:20px; background:#FFF0F5;">
+    <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.18em; color:#E8B4B8; margin:0; text-transform:uppercase;">MAQUILLISTA PROFESIONAL · MONTERREY, NL</p>
+    <h1 style="font-family:'Playfair Display',Georgia,serif; font-size:clamp(2.2rem,3.5vw,3rem); font-weight:700; color:#1A1A1A; line-height:1.15; margin:0;">
+      Luce increíble<br/>en cada ocasión
+    </h1>
+    <p style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:1rem; color:#C0737A; margin:0; line-height:1.5;">
+      "Hacemos brillar tu belleza natural con pasión y profesionalismo."
+    </p>
+    <p style="font-size:0.9rem; color:rgba(51,51,51,0.65); line-height:1.7; margin:0;">
+      Maquillaje, secados y paquetes especiales para novias, quinceañeras y looks del día a día. A domicilio en Monterrey.
+    </p>
+    <a href="#contacto"
+      style="display:flex; align-items:center; justify-content:center; background:#E01A4F; color:white; text-decoration:none; height:54px; border-radius:27px; font-size:1rem; font-weight:700; letter-spacing:0.02em; box-shadow:0 8px 24px rgba(224,26,79,0.25); transition:background 0.2s;"
+      onmouseover="this.style.background='#c01543'" onmouseout="this.style.background='#E01A4F'">
+      Agenda tu cita →
+    </a>
+    <!-- Trust row -->
+    <div style="display:flex; gap:1.25rem; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:6px; font-size:0.82rem; color:#555;">
+        <!-- circle-check lucide -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E01A4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        A domicilio
+      </div>
+      <div style="display:flex; align-items:center; gap:6px; font-size:0.82rem; color:#555;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E01A4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        Productos premium
+      </div>
+      <div style="display:flex; align-items:center; gap:6px; font-size:0.82rem; color:#555;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E01A4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        3+ años de experiencia
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  @media (max-width: 1100px) {
+    .hero-section {
+      grid-template-columns: 1fr !important;
+      height: auto !important;
+    }
+    .hero-section > div:first-child {
+      height: 400px !important;
+    }
+  }
+</style>
