@@ -1,0 +1,287 @@
+---
+---
+
+<section id="galeria" style="background:white; padding:5rem 3rem;">
+  <div style="max-width:1280px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:2.5rem;">
+      <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.18em; color:#C0737A; margin:0 0 0.5rem; text-transform:uppercase;">NUESTRO TRABAJO</p>
+      <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; font-style:italic; color:#1A1A1A; margin:0 0 0.4rem;">Galería</h2>
+      <p style="font-size:0.95rem; color:#999; margin:0;">Cada look cuenta una historia</p>
+    </div>
+    <!-- Filter pills -->
+    <div style="display:flex; flex-wrap:wrap; gap:0.6rem; justify-content:center; margin-bottom:2.5rem;" id="gallery-filters">
+      <button class="filter-pill active" data-filter="all">Todos</button>
+      <button class="filter-pill" data-filter="social">💄 Maquillaje Social</button>
+      <button class="filter-pill" data-filter="natural">✨ Natural</button>
+      <button class="filter-pill" data-filter="artistico">🎨 Artístico</button>
+      <button class="filter-pill" data-filter="xv">🌸 Quinceañera</button>
+      <button class="filter-pill" data-filter="cabello">💨 Cabello</button>
+    </div>
+    <!-- Masonry grid — populated by JS -->
+    <div class="gallery-masonry" id="gallery-grid"></div>
+  </div>
+</section>
+
+<!-- LIGHTBOX MODAL -->
+<div id="lightbox" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.92); align-items:center; justify-content:center;">
+  <button id="lb-close" style="position:absolute; top:1.5rem; right:1.5rem; background:rgba(255,255,255,0.1); border:none; border-radius:50%; width:44px; height:44px; cursor:pointer; color:white; font-size:1.5rem; display:flex; align-items:center; justify-content:center; transition:background 0.2s;">✕</button>
+  <button id="lb-prev" style="position:absolute; left:1.5rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.1); border:none; border-radius:50%; width:52px; height:52px; cursor:pointer; color:white; font-size:1.5rem; display:flex; align-items:center; justify-content:center; transition:background 0.2s;">‹</button>
+  <button id="lb-next" style="position:absolute; right:1.5rem; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.1); border:none; border-radius:50%; width:52px; height:52px; cursor:pointer; color:white; font-size:1.5rem; display:flex; align-items:center; justify-content:center; transition:background 0.2s;">›</button>
+  <div id="lb-content" style="max-width:90vw; max-height:88vh; display:flex; align-items:center; justify-content:center;">
+    <!-- img intencional: src asignado dinámicamente por JS en runtime, no aplica <Image> de Astro -->
+    <img id="lb-img" src="" alt="" style="max-width:100%; max-height:88vh; border-radius:0.75rem; object-fit:contain; display:none;" />
+    <video id="lb-video" src="" controls style="max-width:100%; max-height:88vh; border-radius:0.75rem; display:none;"></video>
+  </div>
+  <div id="lb-counter" style="position:absolute; bottom:1.5rem; left:50%; transform:translateX(-50%); color:white; font-size:0.85rem; font-weight:500; letter-spacing:0.05em; pointer-events:none;"></div>
+</div>
+
+<style is:global>
+  /* Gallery masonry — CSS columns */
+  .gallery-masonry {
+    columns: 4;
+    column-gap: 10px;
+  }
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: #FFF0F5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .gallery-item img,
+  .gallery-item .reel-vid {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 48px rgba(201, 123, 138, .2);;
+    z-index: 1;
+  }
+  .gallery-overlay { display: none; }
+  .reel-sound {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  /* Filter pills */
+  .filter-pill {
+    cursor: pointer;
+    padding: 0.45rem 1.1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1.5px solid #E8B4B8;
+    background: white;
+    color: #444444;
+    transition: all 0.2s;
+  }
+  .filter-pill:hover, .filter-pill.active {
+    background: #E01A4F;
+    border-color: #E01A4F;
+    color: white;
+  }
+
+  @media (max-width: 1024px) {
+    .gallery-masonry { columns: 3; }
+  }
+  @media (max-width: 768px) {
+    .gallery-masonry { columns: 2; }
+  }
+  @media (max-width: 480px) {
+    .gallery-masonry { columns: 1; }
+  }
+</style>
+
+<script>
+  const GALLERY = [
+    // SOCIAL
+    {cat:'social',type:'img',src:'/gallery/social/img_1.jpg',alt:'Maquillaje social Monterrey'},
+    {cat:'social',type:'img',src:'/gallery/social/img_2.jpg',alt:'Maquillaje social Monterrey'},
+    {cat:'social',type:'img',src:'/gallery/social/img_3.jpg',alt:'Maquillaje social Monterrey'},
+    {cat:'social',type:'img',src:'/gallery/social/img_4.jpg',alt:'Maquillaje social Monterrey'},
+    {cat:'social',type:'img',src:'/gallery/social/img_5.jpg',alt:'Maquillaje social Monterrey'},
+    {cat:'social',type:'img',src:'/gallery/social/img_6.jpg',alt:'Maquillaje social Monterrey'},
+    {cat:'social',type:'img',src:'/gallery/social/img_7.jpg',alt:'Maquillaje social Monterrey'},
+    {cat:'social',type:'img',src:'/gallery/social/img_8.jpg',alt:'Maquillaje social Monterrey'},
+    {cat:'social',type:'img',src:'/gallery/social/img_9.jpg',alt:'Maquillaje social Monterrey'},
+    {cat:'social',type:'video',src:'/gallery/social/vid_1.mp4'},
+    {cat:'social',type:'video',src:'/gallery/social/vid_2.mp4'},
+    {cat:'social',type:'video',src:'/gallery/social/vid_3.mp4'},
+    {cat:'social',type:'video',src:'/gallery/social/vid_4.mp4'},
+    // NATURAL
+    {cat:'natural',type:'img',src:'/gallery/natural/img_1.jpg',alt:'Maquillaje natural Monterrey'},
+    {cat:'natural',type:'img',src:'/gallery/natural/img_2.jpg',alt:'Maquillaje natural Monterrey'},
+    {cat:'natural',type:'img',src:'/gallery/natural/img_3.jpg',alt:'Maquillaje natural Monterrey'},
+    {cat:'natural',type:'img',src:'/gallery/natural/img_4.jpg',alt:'Maquillaje natural Monterrey'},
+    {cat:'natural',type:'img',src:'/gallery/natural/img_5.jpg',alt:'Maquillaje natural Monterrey'},
+    {cat:'natural',type:'video',src:'/gallery/natural/vid_1.mp4'},
+    {cat:'natural',type:'video',src:'/gallery/natural/vid_2.mp4'},
+    {cat:'natural',type:'video',src:'/gallery/natural/vid_3.mp4'},
+    {cat:'natural',type:'video',src:'/gallery/natural/vid_4.mp4'},
+    {cat:'natural',type:'video',src:'/gallery/natural/vid_5.mp4'},
+    // ARTÍSTICO
+    {cat:'artistico',type:'img',src:'/gallery/artistico/img_1.jpg',alt:'Maquillaje artístico Monterrey'},
+    {cat:'artistico',type:'img',src:'/gallery/artistico/img_2.jpg',alt:'Maquillaje artístico Monterrey'},
+    {cat:'artistico',type:'img',src:'/gallery/artistico/img_3.jpg',alt:'Maquillaje artístico Monterrey'},
+    {cat:'artistico',type:'video',src:'/gallery/artistico/vid_1.mp4'},
+    {cat:'artistico',type:'video',src:'/gallery/artistico/vid_2.mp4'},
+    {cat:'artistico',type:'video',src:'/gallery/artistico/vid_3.mp4'},
+    // XV
+    {cat:'xv',type:'img',src:'/gallery/xv/img_1.jpg',alt:'Maquillaje quinceañera Monterrey'},
+    {cat:'xv',type:'img',src:'/gallery/xv/img_2.jpg',alt:'Maquillaje quinceañera Monterrey'},
+    {cat:'xv',type:'img',src:'/gallery/xv/img_3.jpg',alt:'Maquillaje quinceañera Monterrey'},
+    {cat:'xv',type:'img',src:'/gallery/xv/img_4.jpg',alt:'Maquillaje quinceañera Monterrey'},
+    // CABELLO
+    {cat:'cabello',type:'img',src:'/gallery/cabello/img_1.jpg',alt:'Peinado Monterrey'},
+    {cat:'cabello',type:'img',src:'/gallery/cabello/img_2.jpg',alt:'Peinado Monterrey'},
+    {cat:'cabello',type:'img',src:'/gallery/cabello/img_3.jpg',alt:'Peinado Monterrey'},
+    {cat:'cabello',type:'img',src:'/gallery/cabello/img_4.jpg',alt:'Peinado Monterrey'},
+    {cat:'cabello',type:'img',src:'/gallery/cabello/img_5.jpg',alt:'Peinado Monterrey'},
+    {cat:'cabello',type:'video',src:'/gallery/cabello/vid_1.mp4'},
+    {cat:'cabello',type:'video',src:'/gallery/cabello/vid_2.mp4'},
+    {cat:'cabello',type:'video',src:'/gallery/cabello/vid_3.mp4'},
+    {cat:'cabello',type:'video',src:'/gallery/cabello/vid_4.mp4'},
+    {cat:'cabello',type:'video',src:'/gallery/cabello/vid_5.mp4'},
+  ];
+
+  const grid = document.getElementById('gallery-grid');
+  let activeFilter = 'all';
+  let visibleItems = [];
+
+  function buildGallery(filter) {
+    activeFilter = filter;
+    grid.innerHTML = '';
+    const filtered = GALLERY.filter(item => filter === 'all' || item.cat === filter);
+    visibleItems = [];
+
+    filtered.forEach((item, idx) => {
+      const wrapper = document.createElement('div');
+      wrapper.className = item.type === 'video' ? 'gallery-item gitem--video' : 'gallery-item';
+      wrapper.dataset.cat = item.cat;
+      wrapper.dataset.idx = String(idx);
+
+      if (item.type === 'video') {
+        const vid = document.createElement('video');
+        vid.src = item.src;
+        vid.loop = true;
+        vid.muted = true;
+        vid.autoplay = true;
+        vid.playsInline = true;
+        vid.setAttribute('muted', '');
+        vid.setAttribute('playsinline', '');
+        vid.setAttribute('preload', 'metadata');
+        vid.setAttribute('aria-hidden', 'true');
+        vid.className = 'reel-vid';
+        const track = document.createElement('track');
+        track.kind = 'captions';
+        track.setAttribute('default', '');
+        vid.appendChild(track);
+
+        const soundBtn = document.createElement('button');
+        soundBtn.className = 'reel-sound';
+        soundBtn.title = 'Sonido';
+        soundBtn.textContent = '🔇';
+        soundBtn.addEventListener('click', e => {
+          e.stopPropagation();
+          vid.muted = !vid.muted;
+          soundBtn.textContent = vid.muted ? '🔇' : '🔊';
+        });
+
+        wrapper.appendChild(vid);
+        wrapper.appendChild(soundBtn);
+      } else {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = item.alt || '';
+        img.loading = 'lazy';
+        wrapper.appendChild(img);
+      }
+
+      wrapper.addEventListener('click', () => openLightbox(filtered, idx));
+      grid.appendChild(wrapper);
+      visibleItems.push(wrapper);
+    });
+  }
+
+  buildGallery('all');
+
+  // Filter pills
+  document.querySelectorAll('.filter-pill').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      buildGallery(this.dataset.filter);
+    });
+  });
+
+  // ── Lightbox ──────────────────────────────────────────────────
+  const lightbox = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lb-img');
+  const lbVideo  = document.getElementById('lb-video');
+  let lbItems = [], lbIdx = 0;
+
+  function openLightbox(items, idx) {
+    lbItems = items; lbIdx = idx;
+    showLb();
+    lightbox.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+    document.body.style.overflow = '';
+    lbVideo.pause();
+    lbVideo.src = '';
+    lbImg.src = '';
+    lbImg.style.display = 'none';
+    lbVideo.style.display = 'none';
+  }
+
+  function showLb() {
+    const item = lbItems[lbIdx];
+    if (!item) return;
+    if (item.type === 'video') {
+      lbImg.style.display = 'none'; lbImg.src = '';
+      lbVideo.src = item.src;
+      lbVideo.style.display = 'block';
+      lbVideo.play();
+    } else {
+      lbVideo.pause(); lbVideo.src = '';
+      lbVideo.style.display = 'none';
+      lbImg.src = item.src;
+      lbImg.alt = item.alt || '';
+      lbImg.style.display = 'block';
+    }
+    document.getElementById('lb-prev').style.visibility = lbIdx > 0 ? 'visible' : 'hidden';
+    document.getElementById('lb-next').style.visibility = lbIdx < lbItems.length - 1 ? 'visible' : 'hidden';
+    document.getElementById('lb-counter').textContent = (lbIdx + 1) + ' / ' + lbItems.length;
+  }
+
+  document.getElementById('lb-close').addEventListener('click', closeLightbox);
+  document.getElementById('lb-prev').addEventListener('click', () => { if (lbIdx > 0) { lbIdx--; showLb(); } });
+  document.getElementById('lb-next').addEventListener('click', () => { if (lbIdx < lbItems.length - 1) { lbIdx++; showLb(); } });
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (lightbox.style.display !== 'flex') return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft' && lbIdx > 0) { lbIdx--; showLb(); }
+    if (e.key === 'ArrowRight' && lbIdx < lbItems.length - 1) { lbIdx++; showLb(); }
+  });
+</script>

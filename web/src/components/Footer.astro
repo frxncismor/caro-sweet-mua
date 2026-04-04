@@ -1,0 +1,106 @@
+---
+import { Image } from 'astro:assets';
+import logoWhite from '../assets/images/logo_white.png';
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <!-- Left -->
+    <div class="footer-left">
+      <Image src={logoWhite} alt="Caro Sweet Mua" width={150} height={48} style="object-fit:contain; opacity:0.9;" class="footer-logo" loading="lazy" />
+      <p style="color:rgba(255,255,255,0.38); font-size:14px; margin:0;">Hacemos brillar tu belleza natural con pasión y profesionalismo.</p>
+      <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+        <a href="https://instagram.com/caro_sweet.mua" target="_blank" rel="noopener"
+          style="display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.06); color:#E8B4B8; text-decoration:none; padding:0 16px; border-radius:18px; font-size:13px; height:36px; border:1px solid rgba(255,255,255,0.08); transition:background 0.2s;"
+          onmouseover="this.style.background='rgba(255,255,255,0.12)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          @caro_sweet.mua
+        </a>
+        <a href="https://wa.me/528137459614" target="_blank" rel="noopener"
+          style="display:inline-flex; align-items:center; gap:8px; background:rgba(37,211,102,0.08); color:#25D366; text-decoration:none; padding:0 16px; border-radius:18px; font-size:13px; height:36px; transition:background 0.2s;"
+          onmouseover="this.style.background='rgba(37,211,102,0.15)'" onmouseout="this.style.background='rgba(37,211,102,0.08)'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+    <!-- Right -->
+    <div class="footer-right">
+      <p style="color:#E8B4B8; font-size:12px; font-weight:700; letter-spacing:1px; margin:0; text-transform:uppercase;">Horario</p>
+      <p style="color:rgba(255,255,255,0.38); font-size:13px; margin:0;">Lun – Sáb: 9:00 AM – 8:00 PM</p>
+      <p style="color:rgba(255,255,255,0.38); font-size:13px; margin:0;">Dom: Solo con cita previa</p>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8B4B8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span style="color:rgba(255,255,255,0.38); font-size:13px;">Monterrey y área metropolitana</span>
+      </div>
+    </div>
+  </div>
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <span>© 2025 Caro Sweet Mua</span>
+    <span>Hecho por <a href="https://www.frxncismor.dev/" target="_blank" rel="noopener" class="footer-credit-link">@frxncismor</a></span>
+  </div>
+</footer>
+
+<style is:global>
+  .site-footer {
+    background: #1A1A1A;
+    padding: 2.5rem 5rem;
+    overflow: hidden;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+  }
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .footer-bottom {
+    max-width: 1280px;
+    margin: 1.5rem auto 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 11px;
+    color: rgba(255,255,255,0.22);
+  }
+  .footer-credit-link {
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-credit-link:hover { color: #E8B4B8; }
+
+  @media (max-width: 900px) {
+    .footer-inner { flex-direction: column !important; align-items: center !important; gap: 2rem !important; }
+    .footer-left { align-items: center !important; text-align: center; }
+    .footer-left > div { justify-content: center; }
+    .footer-right { align-items: center !important; text-align: center; }
+    .footer-right > div { justify-content: center; }
+    .footer-bottom { flex-direction: column; align-items: center; gap: 0.25rem; text-align: center; }
+    .footer-logo { display: block; margin: 0 auto; }
+  }
+  @media (max-width: 640px) {
+    .site-footer { padding: 2rem 1.25rem !important; }
+    .footer-right { align-items:center !important; }
+    .footer-bottom { flex-direction: column; align-items: center; gap: 0.25rem; }
+  }
+</style>

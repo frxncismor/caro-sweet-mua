@@ -1,0 +1,63 @@
+---
+import ServiceCard from './ServiceCard.astro';
+import card1Img from '../assets/images/generated-1775187017791.png';
+import card2Img from '../assets/images/generated-1775187046111.png';
+import card3Img from '../assets/images/generated-1775187063488.png';
+---
+
+<section id="servicios" style="background:#FDFAFA; padding:5rem 3rem;">
+  <div style="max-width:1280px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:3rem;">
+      <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.18em; color:#E8B4B8; margin:0 0 0.75rem; text-transform:uppercase;">NUESTROS SERVICIOS</p>
+      <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.5rem); font-weight:700; color:#1A1A1A; margin:0;">
+        Todo lo que necesitas para lucir espectacular
+      </h2>
+    </div>
+    <div class="services-grid">
+      <ServiceCard
+        image={card1Img}
+        imageAlt="Maquillaje profesional"
+        category="Maquillaje"
+        categoryColor="#C0737A"
+        categoryBg="#FCF0F3"
+        title="Maquillaje Profesional"
+        description="Social, novia, artístico, quinceañera y natural. Un look creado especialmente para ti."
+        price="$280"
+      />
+      <ServiceCard
+        image={card2Img}
+        imageAlt="Secados y peinados"
+        category="Peinado"
+        categoryColor="#6060C0"
+        categoryBg="#F0F0FF"
+        title="Secados & Peinados"
+        description="Clásico, ondas, volumen máximo y definición de rizos. Tu cabello, perfecto."
+        price="$200"
+      />
+      <ServiceCard
+        image={card3Img}
+        imageAlt="Paquetes especiales"
+        category="Paquete"
+        categoryColor="white"
+        categoryBg="#E01A4F"
+        title="Paquetes Especiales"
+        description="Maquillaje + peinado completo para bodas, quinceañeras y eventos especiales. Todo incluido."
+        price="$480"
+        dark={true}
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 900px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
