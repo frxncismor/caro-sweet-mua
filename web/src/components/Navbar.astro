@@ -3,45 +3,58 @@ import { Image } from 'astro:assets';
 import logo from '../assets/images/logo.png';
 ---
 
-<nav class="sticky top-0 z-[100] bg-white border-b border-[#F0E6EA] shadow-[0_1px_8px_rgba(0,0,0,0.06)]" aria-label="Navegación principal">
-  <div class="max-w-7xl mx-auto px-12 flex items-center justify-between h-[72px]">
-    <a href="/" class="flex items-center no-underline" title="Caro Sweet Mua — Inicio">
-      <Image src={logo} alt="Caro Sweet Mua" title="Caro Sweet Mua — Maquillista Profesional en Monterrey" width={130} height={44} class="object-contain" loading="eager" />
+<header class="glass-nav shadow-[0_4px_30px_rgba(0,0,0,0.03)] fixed top-0 z-50 w-full" aria-label="Navegación principal">
+  <div class="max-w-screen-2xl mx-auto px-8 flex justify-between items-center h-24">
+    <a href="/" class="no-underline" title="Caro Sweet MUA — Inicio">
+      <Image src={logo} alt="Caro Sweet MUA" title="Caro Sweet MUA — Makeup & Hair Artist en Houston" width={130} height={44} class="object-contain font-headline font-bold text-on-surface text-2xl" loading="eager" />
     </a>
-    <div class="flex items-center gap-8 nav-links-desktop">
-      <a href="#servicios" title="Ver servicios de maquillaje" class="no-underline text-text/69 text-[0.9rem] font-medium transition-colors duration-200 hover:text-primary">Servicios</a>
-      <a href="#galeria" title="Ver galería de trabajos" class="no-underline text-text/69 text-[0.9rem] font-medium transition-colors duration-200 hover:text-primary">Galería</a>
-      <a href="#testimonios" title="Ver testimonios de clientas" class="no-underline text-text/69 text-[0.9rem] font-medium transition-colors duration-200 hover:text-primary">Testimonios</a>
-      <a href="#contacto" title="Ir a contacto y reservas" class="no-underline text-text/69 text-[0.9rem] font-medium transition-colors duration-200 hover:text-primary">Contacto</a>
-    </div>
-    <a href="#contacto" title="Reservar cita de maquillaje"
-      class="flex items-center gap-2 bg-primary text-white no-underline px-6 rounded-[21px] text-[0.875rem] font-bold h-[42px] whitespace-nowrap transition-colors duration-200 hover:bg-[#c01543] nav-cta-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-      Reservar cita
-    </a>
-    <button id="hamburger-btn" class="hamburger-btn" aria-label="Menú" aria-expanded="false">
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-8" aria-label="Menú principal">
+      <a href="#services" class="text-on-surface-variant hover:text-primary-container transition-colors font-medium text-sm no-underline">Servicios</a>
+      <a href="#about" class="text-on-surface-variant hover:text-primary-container transition-colors font-medium text-sm no-underline">Sobre Mí</a>
+      <a href="#gallery" class="text-on-surface-variant hover:text-primary-container transition-colors font-medium text-sm no-underline">Galería</a>
+      <a href="#reviews" class="text-on-surface-variant hover:text-primary-container transition-colors font-medium text-sm no-underline">Reseñas</a>
+    </nav>
+
+    <!-- CTA button desktop -->
+    <button
+      type="button"
+      data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado"
+      data-cal-namespace="peinado"
+      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+      class="glow-button text-on-primary px-8 py-3 rounded-full font-semibold text-sm hidden md:block border-none cursor-pointer">
+      Agenda tu Cita
+    </button>
+
+    <!-- Hamburger -->
+    <button id="hamburger-btn" class="hamburger-btn md:hidden" aria-label="Menú" aria-expanded="false">
       <span class="ham-bar"></span>
       <span class="ham-bar"></span>
       <span class="ham-bar"></span>
     </button>
   </div>
-</nav>
+</header>
 
 <!-- Mobile menu -->
 <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
-  <a href="#servicios" class="mobile-nav-link">Servicios</a>
-  <a href="#galeria" class="mobile-nav-link">Galería</a>
-  <a href="#testimonios" class="mobile-nav-link">Testimonios</a>
-  <a href="#contacto" class="mobile-nav-link">Contacto</a>
-  <a href="#contacto" class="flex items-center justify-center gap-2 bg-primary text-white no-underline py-[0.8rem] rounded-[21px] text-[0.9rem] font-bold mt-2 hover:bg-[#c01543] transition-colors duration-200">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-    Reservar cita
-  </a>
+  <a href="#services" class="mobile-nav-link">Servicios</a>
+  <a href="#about" class="mobile-nav-link">Sobre Mí</a>
+  <a href="#gallery" class="mobile-nav-link">Galería</a>
+  <a href="#reviews" class="mobile-nav-link">Reseñas</a>
+  <button
+    type="button"
+    data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado"
+    data-cal-namespace="peinado"
+    data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+    class="glow-button text-on-primary py-3 rounded-full font-semibold text-sm mt-2 w-full border-none cursor-pointer">
+    Agenda tu Cita
+  </button>
 </div>
 
 <style>
   .hamburger-btn {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
@@ -52,11 +65,14 @@ import logo from '../assets/images/logo.png';
     width: 40px;
     height: 40px;
   }
+  @media (min-width: 768px) {
+    .hamburger-btn { display: none; }
+  }
   .ham-bar {
     display: block;
     width: 22px;
     height: 2px;
-    background: #333;
+    background: #1e1b18;
     border-radius: 2px;
     transition: transform 0.3s, opacity 0.3s;
   }
@@ -67,13 +83,15 @@ import logo from '../assets/images/logo.png';
   .mobile-menu {
     display: none;
     position: fixed;
-    top: 72px;
+    top: 96px;
     left: 0;
     right: 0;
-    background: white;
-    z-index: 99;
-    border-bottom: 1px solid #F0E6EA;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    background: rgba(255, 248, 242, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 49;
+    border-bottom: 1px solid rgba(212, 133, 106, 0.15);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
     padding: 1.25rem 1.5rem;
     flex-direction: column;
     gap: 0;
@@ -81,23 +99,14 @@ import logo from '../assets/images/logo.png';
   .mobile-menu.open { display: flex; }
   .mobile-nav-link {
     text-decoration: none;
-    color: #333;
+    color: #53433e;
     font-size: 1rem;
     font-weight: 500;
     padding: 0.85rem 0;
-    border-bottom: 1px solid #F5EEF0;
+    border-bottom: 1px solid rgba(212, 133, 106, 0.1);
     transition: color 0.2s;
   }
-  .mobile-nav-link:hover { color: #E01A4F; }
-
-  @media (max-width: 900px) {
-    .nav-links-desktop { display: none !important; }
-    .nav-cta-btn { display: none !important; }
-    .hamburger-btn { display: flex !important; }
-  }
-  @media (max-width: 640px) {
-    nav > div { padding: 0 1.25rem !important; }
-  }
+  .mobile-nav-link:hover { color: #8e4c35; }
 </style>
 
 <script>

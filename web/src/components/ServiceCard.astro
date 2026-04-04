@@ -3,49 +3,40 @@ import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
-  image: ImageMetadata;
-  imageAlt: string;
-  category: string;
-  categoryColor: string;
-  categoryBg: string;
   title: string;
   description: string;
   price: string;
-  dark?: boolean;
+  icon: string;
+  imageSrc: ImageMetadata;
+  imageAlt: string;
+  calLink?: string;
 }
-const { image, imageAlt, category, categoryColor, categoryBg, title, description, price, dark = false } = Astro.props;
+
+const {
+  title, description, price, icon, imageSrc, imageAlt,
+  calLink = "francisco-javier-moreno-hinojosa-udolb9/peinado"
+} = Astro.props;
 ---
 
-<div class:list={[
-  "rounded-2xl overflow-hidden flex flex-col",
-  dark
-    ? "bg-dark"
-    : "border-[1.5px] border-[#F0E6EA] transition-shadow duration-200 hover:shadow-[0_8px_30px_rgba(224,26,79,0.12)]"
-]}>
-  <div class="h-[260px] overflow-hidden relative">
-    <Image src={image} alt={imageAlt} class="w-full h-full object-cover block" />
-    {dark && (
-      <div class="absolute top-4 right-4 bg-primary text-white text-[0.65rem] font-bold px-3 py-[0.3rem] rounded-full tracking-[0.08em]">MEJOR VALOR</div>
-    )}
-  </div>
-  <div class="p-6 flex flex-col gap-3 flex-1">
-    <!-- category badge: bg and color are dynamic runtime props — keep style= -->
-    <div class="inline-flex items-center rounded-full px-3 py-1 w-fit" style={`background:${categoryBg};`}>
-      <span class="text-[0.7rem] font-semibold uppercase tracking-[0.06em]" style={`color:${categoryColor};`}>{category}</span>
+<div class="bg-[#FDF6F0] rounded-lg border border-[#F2C4A8]/20 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col overflow-hidden">
+  <Image src={imageSrc} alt={imageAlt} class="w-full h-[200px] object-cover" />
+  <div class="p-10 flex flex-col gap-4 flex-1">
+    <!-- Icon circle -->
+    <div class="w-20 h-20 bg-white rounded-full shadow-sm flex items-center justify-center -mt-14 relative z-10">
+      <span class="material-symbols-outlined text-primary text-3xl">{icon}</span>
     </div>
-    <h3 class:list={["font-serif text-xl font-bold m-0", dark ? "text-white" : "text-dark"]}>{title}</h3>
-    <p class:list={["text-[0.9rem] m-0 leading-[1.6]", dark ? "text-white/70" : "text-[#555]"]}>{description}</p>
-    <div class:list={["mt-auto pt-4 border-t", dark ? "border-white/10" : "border-[#F0E6EA]"]}>
-      <span class:list={["text-[0.78rem]", dark ? "text-white/50" : "text-[#999]"]}>Desde</span>
-      <p class:list={["font-serif text-[1.75rem] font-bold m-0", dark ? "text-light-pink" : "text-primary"]}>{price}</p>
+    <h3 class="font-headline font-bold text-on-surface text-xl mt-2 m-0">{title}</h3>
+    <p class="text-on-surface-variant font-body text-sm leading-relaxed flex-1 m-0">{description}</p>
+    <div class="flex items-center justify-between pt-4 border-t border-outline-variant/30 mt-auto">
+      <span class="text-primary/80 font-headline font-bold text-2xl">{price}</span>
+      <button
+        type="button"
+        data-cal-link={calLink}
+        data-cal-namespace="peinado"
+        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+        class="text-primary font-semibold text-sm hover:text-primary-container transition-colors bg-transparent border-none cursor-pointer p-0 font-body">
+        Reservar →
+      </button>
     </div>
-    <button
-      type="button"
-      data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado"
-      data-cal-namespace="peinado"
-      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-      class="block w-full bg-primary text-white border-none py-[0.65rem] rounded-full text-[0.875rem] font-semibold text-center transition-colors duration-200 cursor-pointer hover:bg-[#c01543]">
-      Reservar
-    </button>
   </div>
 </div>

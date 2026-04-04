@@ -1,21 +1,20 @@
 ---
 ---
 
-<section id="galeria" class="bg-white py-20 px-12">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-10">
-      <p class="text-[0.72rem] font-semibold tracking-[0.18em] text-muted-pink m-0 mb-2 uppercase">NUESTRO TRABAJO</p>
-      <h2 class="font-serif text-[clamp(1.8rem,3vw,2.5rem)] font-bold italic text-dark m-0 mb-[0.4rem]">Galería</h2>
-      <p class="text-[0.95rem] text-[#999] m-0">Cada look cuenta una historia</p>
-    </div>
-    <!-- Filter pills -->
-    <div class="flex flex-wrap gap-[0.6rem] justify-center mb-10" id="gallery-filters">
-      <button class="filter-pill active" data-filter="all">Todos</button>
-      <button class="filter-pill" data-filter="social">💄 Maquillaje Social</button>
-      <button class="filter-pill" data-filter="natural">✨ Natural</button>
-      <button class="filter-pill" data-filter="artistico">🎨 Artístico</button>
-      <button class="filter-pill" data-filter="xv">🌸 Quinceañera</button>
-      <button class="filter-pill" data-filter="cabello">💨 Cabello</button>
+<section id="gallery" class="py-32 bg-surface-container">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Header with filter pills inline-right -->
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-10">
+      <div>
+        <p class="text-primary font-semibold tracking-widest uppercase text-sm font-label m-0 mb-2">NUESTRO TRABAJO</p>
+        <h2 class="font-headline font-bold text-on-surface text-[clamp(1.8rem,3vw,2.5rem)] m-0">Galería</h2>
+      </div>
+      <!-- Filter pills -->
+      <div class="flex flex-wrap gap-[0.6rem]" id="gallery-filters">
+        <button class="filter-pill active" data-filter="all">Todo</button>
+        <button class="filter-pill" data-filter="social">Bodas</button>
+        <button class="filter-pill" data-filter="artistico">Editorial</button>
+      </div>
     </div>
     <!-- Masonry grid — populated by JS -->
     <div class="gallery-masonry" id="gallery-grid"></div>
@@ -44,11 +43,11 @@
   .gallery-item {
     break-inside: avoid;
     margin-bottom: 10px;
-    border-radius: 8px;
+    border-radius: var(--radius);
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    background: #FFF0F5;
+    background: var(--color-surface-container);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .gallery-item img,
@@ -59,7 +58,7 @@
   }
   .gallery-item:hover {
     transform: scale(1.02);
-    box-shadow: 0 12px 48px rgba(201, 123, 138, .2);;
+    box-shadow: 0 12px 48px rgba(142, 76, 53, 0.2);
     z-index: 1;
   }
   .gallery-overlay { display: none; }
@@ -84,17 +83,17 @@
   .filter-pill {
     cursor: pointer;
     padding: 0.45rem 1.1rem;
-    border-radius: 9999px;
+    border-radius: var(--radius-full);
     font-size: 0.875rem;
     font-weight: 500;
-    border: 1.5px solid #E8B4B8;
+    border: 1.5px solid var(--color-outline-variant);
     background: white;
     color: #444444;
     transition: all 0.2s;
   }
   .filter-pill:hover, .filter-pill.active {
-    background: #E01A4F;
-    border-color: #E01A4F;
+    background: var(--color-primary);
+    border-color: var(--color-primary);
     color: white;
   }
 

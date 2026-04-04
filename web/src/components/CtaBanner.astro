@@ -1,21 +1,34 @@
 ---
 ---
 
-<section class="bg-primary py-20 px-12 text-center relative overflow-hidden reveal" aria-label="Llamada a la acción">
-  <div class="absolute -top-[50px] -left-[50px] w-[300px] h-[300px] rounded-full bg-white/5 pointer-events-none"></div>
-  <div class="absolute -bottom-[30px] -right-[30px] w-[200px] h-[200px] rounded-full bg-white/4 pointer-events-none"></div>
-  <div class="max-w-[900px] mx-auto relative">
-    <h2 class="font-serif text-[clamp(2rem,4vw,2.8rem)] font-bold text-white mb-4 leading-[1.2]">
-      ¿Lista para tu transformación?
+<section class="py-32 bg-primary-container relative overflow-hidden reveal" aria-label="Reserva tu cita">
+  <!-- Decorative blobs -->
+  <div class="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-on-primary/10 pointer-events-none blur-3xl" aria-hidden="true"></div>
+  <div class="absolute -bottom-20 -right-20 w-96 h-96 rounded-full bg-primary/20 pointer-events-none blur-3xl" aria-hidden="true"></div>
+
+  <div class="container mx-auto px-6 relative z-10 text-center">
+    <span class="script-font text-5xl text-on-primary/90 mb-6 block" aria-hidden="true">I can't wait to meet you!</span>
+    <h2 class="font-headline font-extrabold text-on-primary text-5xl md:text-7xl leading-[1.1] mb-6 m-0">
+      Tu transformación empieza aquí
     </h2>
-    <p class="text-base text-white/90 mb-8 leading-[1.7]">
-      Agenda hoy mismo · Servicio a domicilio en Monterrey · Respondo en menos de 1 hora
+    <p class="text-on-primary/80 font-body text-lg mb-12 max-w-2xl mx-auto">
+      Los espacios se agotan rápido — especialmente en temporada de bodas. Asegura tu fecha hoy mismo.
     </p>
-    <a href="https://wa.me/528137459614?text=%C2%A1Hola%20Caro!%20%E2%9C%A8%20Vi%20tu%20trabajo%20y%20quiero%20lucir%20incre%C3%ADble%20en%20mi%20pr%C3%B3ximo%20evento.%20%C2%BFTienes%20disponibilidad%20para%20una%20cita%3F" target="_blank" rel="noopener"
-      class="inline-flex items-center gap-3 bg-white text-primary no-underline px-9 rounded-full text-base font-bold h-14 tracking-[0.04em] shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]">
-      <!-- message-circle lucide -->
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-      RESERVAR POR WHATSAPP
-    </a>
+    <button
+      type="button"
+      data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado"
+      data-cal-namespace="peinado"
+      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+      class="bg-on-primary text-primary px-16 py-6 rounded-full font-extrabold text-2xl shadow-2xl hover:scale-105 transition-transform duration-300 font-headline cursor-pointer border-none">
+      Reservar Ahora
+    </button>
+
+    <div class="flex items-center justify-center gap-3 mt-8 text-on-primary/80">
+      <span class="material-symbols-outlined text-lg" aria-hidden="true">schedule</span>
+      <span class="font-body text-sm">Respuesta en menos de 24h</span>
+    </div>
   </div>
+
+  <!-- Decorative watermark -->
+  <span class="script-font text-9xl text-on-primary/20 absolute bottom-10 right-10 select-none hidden lg:block pointer-events-none" aria-hidden="true">Caro Sweet</span>
 </section>
