@@ -5,46 +5,57 @@ import card2Img from '../assets/images/generated-1775187046111.png';
 import card3Img from '../assets/images/generated-1775187063488.png';
 ---
 
-<section id="servicios" class="bg-bg py-20 px-12 reveal">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-      <p class="text-[0.72rem] font-semibold tracking-[0.18em] text-light-pink m-0 mb-3 uppercase">NUESTROS SERVICIOS</p>
-      <h2 class="font-serif text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark m-0">
-        Todo lo que necesitas para lucir espectacular
+<section id="services" class="py-20 md:py-32 bg-surface">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-12 md:mb-16 reveal">
+      <p class="text-primary font-semibold tracking-widest uppercase text-sm font-label m-0 mb-3">Nuestros Servicios</p>
+      <h2 class="font-headline font-bold text-on-surface text-[clamp(1.8rem,3vw,2.8rem)] m-0 mb-4">
+        Servicios & Experiencias
       </h2>
+      <p class="text-on-surface-variant font-body text-base m-0 max-w-xl mx-auto">
+        Cada servicio está diseñado para resaltar tu belleza única con técnicas profesionales y productos de alta gama.
+      </p>
     </div>
-    <div class="grid grid-cols-3 gap-6 max-[900px]:grid-cols-1">
-      <ServiceCard
-        image={card1Img}
-        imageAlt="Maquillaje profesional"
-        category="Maquillaje"
-        categoryColor="#C0737A"
-        categoryBg="#FCF0F3"
-        title="Maquillaje Profesional"
-        description="Social, novia, artístico, quinceañera y natural. Un look creado especialmente para ti."
-        price="$280"
-      />
-      <ServiceCard
-        image={card2Img}
-        imageAlt="Secados y peinados"
-        category="Peinado"
-        categoryColor="#6060C0"
-        categoryBg="#F0F0FF"
-        title="Secados & Peinados"
-        description="Clásico, ondas, volumen máximo y definición de rizos. Tu cabello, perfecto."
-        price="$200"
-      />
-      <ServiceCard
-        image={card3Img}
-        imageAlt="Paquetes especiales"
-        category="Paquete"
-        categoryColor="white"
-        categoryBg="#E01A4F"
-        title="Paquetes Especiales"
-        description="Maquillaje + peinado completo para bodas, quinceañeras y eventos especiales. Todo incluido."
-        price="$480"
-        dark={true}
-      />
+    <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+      <div class="reveal-scale reveal-delay-1">
+        <ServiceCard
+          imageSrc={card1Img}
+          imageAlt="Soft Glam Makeup — Maquillaje profesional Monterrey"
+          title="Soft Glam Makeup"
+          description="Un look luminoso y sofisticado que realza tu belleza natural. Perfecto para eventos sociales, bodas y cualquier ocasión especial donde quieras lucir radiante."
+          price="$120"
+        >
+          <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8e4c35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+          </svg>
+        </ServiceCard>
+      </div>
+      <div class="reveal-scale reveal-delay-2">
+        <ServiceCard
+          imageSrc={card2Img}
+          imageAlt="Hair Styling — Peinado profesional Monterrey"
+          title="Hair Styling"
+          description="Desde ondas románticas hasta recogidos elegantes. Transformamos tu cabello en una obra de arte que complementa perfectamente tu look."
+          price="$85"
+        >
+          <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#795740" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/>
+          </svg>
+        </ServiceCard>
+      </div>
+      <div class="reveal-scale reveal-delay-3">
+        <ServiceCard
+          imageSrc={card3Img}
+          imageAlt="Bridal Experience — Maquillaje y peinado para novias Monterrey"
+          title="Bridal Experience"
+          description="El paquete completo para tu día más especial. Maquillaje editorial + peinado + prueba previa para que te veas perfecta desde el primer hasta el último momento."
+          price="$350"
+        >
+          <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#d4856a" stroke="#8e4c35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+          </svg>
+        </ServiceCard>
+      </div>
     </div>
   </div>
 </section>

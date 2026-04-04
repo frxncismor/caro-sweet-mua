@@ -5,23 +5,53 @@ import conv2 from '../assets/images/conversation (2).png';
 import conv3 from '../assets/images/conversation (3).png';
 ---
 
-<section id="testimonios" class="bg-bg py-20 px-12 reveal">
-  <div class="max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-      <p class="text-[0.72rem] font-semibold tracking-[0.18em] text-light-pink m-0 mb-3 uppercase">TESTIMONIOS REALES</p>
-      <h2 class="font-serif text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark m-0">
-        Clientas que ya lucen radiantes
+<section id="reviews" class="py-20 md:py-32 bg-background">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <p class="text-primary font-semibold tracking-widest uppercase text-sm font-label m-0 mb-3">RESEÑAS REALES</p>
+      <h2 class="font-headline font-bold text-on-surface text-[clamp(1.8rem,3vw,2.8rem)] m-0">
+        Lo que dicen mis clientes
       </h2>
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <div class="rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
-        <Image src={conv1} alt="Reseña de clienta — WhatsApp" class="w-full block" />
+
+    <div class="grid md:grid-cols-3 gap-8 items-start">
+      <!-- Card 1 -->
+      <div class="bg-[#FDF6F0] p-8 rounded-[2rem] border border-[#D4856A]/10 flex flex-col gap-6 reveal-scale reveal-delay-1">
+        <Image src={conv1} alt="Reseña de clienta feliz — WhatsApp" class="w-full h-[280px] object-cover rounded-[1.5rem]" />
+        <div class="flex justify-center gap-1" aria-label="5 estrellas">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="text-on-surface font-bold text-center tracking-[0.2em] uppercase text-sm m-0">Clienta feliz</p>
       </div>
-      <div class="rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
-        <Image src={conv2} alt="Reseña de clienta — WhatsApp" class="w-full block" />
+
+      <!-- Card 2 (offset up) -->
+      <div class="bg-[#FDF6F0] p-8 rounded-[2rem] border border-[#D4856A]/10 flex flex-col gap-6 md:-translate-y-6 reveal-scale reveal-delay-2">
+        <Image src={conv2} alt="Reseña de novia encantada — WhatsApp" class="w-full h-[280px] object-cover rounded-[1.5rem]" />
+        <div class="flex justify-center gap-1" aria-label="5 estrellas">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="text-on-surface font-bold text-center tracking-[0.2em] uppercase text-sm m-0">Novia encantada</p>
       </div>
-      <div class="rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
-        <Image src={conv3} alt="Reseña de clienta — WhatsApp" class="w-full block" />
+
+      <!-- Card 3 -->
+      <div class="bg-[#FDF6F0] p-8 rounded-[2rem] border border-[#D4856A]/10 flex flex-col gap-6 reveal-scale reveal-delay-3">
+        <Image src={conv3} alt="Reseña de clienta que siempre vuelve — WhatsApp" class="w-full h-[280px] object-cover rounded-[1.5rem]" />
+        <div class="flex justify-center gap-1" aria-label="5 estrellas">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="text-on-surface font-bold text-center tracking-[0.2em] uppercase text-sm m-0">Siempre vuelve</p>
       </div>
     </div>
   </div>

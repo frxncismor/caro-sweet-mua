@@ -3,46 +3,59 @@ import { Image } from 'astro:assets';
 import heroImg from '../assets/images/generated-1775198929226.png';
 ---
 
-<section class="grid grid-cols-[60%_40%] h-[640px] bg-hero-bg max-[1100px]:grid-cols-1 max-[1100px]:h-auto">
-  <!-- Left: photo -->
-  <div class="relative overflow-hidden h-[640px] max-[1100px]:h-[400px]">
-    <Image src={heroImg} alt="Maquillaje profesional Monterrey" class="w-full h-full object-cover block" loading="eager" fetchpriority="high" />
-    <!-- Social badge – absolute bottom-left -->
-    <div class="absolute bottom-7 left-6 bg-white rounded-[18px] px-4 flex items-center gap-2 h-9 shadow-[0_4px_16px_rgba(0,0,0,0.12)] text-[13px] font-semibold text-dark">
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#F5A623" stroke="#F5A623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      4.9 · +200 clientas felices
-    </div>
+<section class="min-h-screen flex items-center pt-24 relative bg-background">
+  <!-- Blobs contained so they don't cause horizontal scroll -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div class="absolute top-20 -left-40 w-[600px] h-[600px] rounded-full bg-primary-fixed opacity-40 blur-3xl"></div>
+    <div class="absolute bottom-20 -right-40 w-[500px] h-[500px] rounded-full bg-secondary-container opacity-30 blur-3xl"></div>
   </div>
 
-  <!-- Right: content -->
-  <div class="flex flex-col justify-center pt-14 pr-12 pb-14 pl-14 gap-5 bg-hero-bg">
-    <p class="text-[0.72rem] font-semibold tracking-[0.18em] text-light-pink m-0 uppercase">MAQUILLISTA PROFESIONAL · MONTERREY, NL</p>
-    <h1 class="font-serif text-[clamp(2.2rem,3.5vw,3rem)] font-bold text-dark leading-[1.15] m-0">
-      Luce increíble<br/>en cada ocasión
-    </h1>
-    <p class="font-serif italic text-base text-muted-pink m-0 leading-[1.5]">
-      "Hacemos brillar tu belleza natural con pasión y profesionalismo."
-    </p>
-    <p class="text-[0.9rem] text-text/65 leading-[1.7] m-0">
-      Maquillaje, secados y paquetes especiales para novias, quinceañeras y looks del día a día. A domicilio en Monterrey.
-    </p>
-    <a href="#contacto"
-      class="flex items-center justify-center bg-primary text-white no-underline h-[54px] rounded-[27px] text-base font-bold tracking-[0.02em] shadow-[0_8px_24px_rgba(224,26,79,0.25)] transition-colors duration-200 hover:bg-[#c01543]">
-      Agenda tu cita →
-    </a>
-    <!-- Trust row -->
-    <div class="flex gap-5 flex-wrap">
-      <div class="flex items-center gap-[6px] text-[0.82rem] text-[#555]">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E01A4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-        A domicilio
+  <div class="container mx-auto px-6 grid md:grid-cols-2 gap-8 md:gap-12 items-center relative z-10 py-12 md:py-0">
+    <!-- Left column -->
+    <div class="flex flex-col gap-6 reveal-left">
+      <p class="text-primary tracking-widest uppercase text-sm font-semibold font-label m-0">Makeup & Hair Artist</p>
+      <h1 class="font-headline font-extrabold text-on-surface text-[clamp(2.4rem,5vw,3.6rem)] leading-[1.1] m-0">
+        Haz que cada ocasión sea
+        <span class="script-font text-primary-container text-6xl md:text-8xl block mt-2">inolvidable</span>
+      </h1>
+      <p class="text-on-surface-variant font-body text-base leading-relaxed m-0">
+        Maquillaje y peinado profesional en Monterrey, N.L. Me especializo en realzar tu belleza natural con un toque editorial, para que luzcas radiante en cada momento especial.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <button
+          type="button"
+          data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado"
+          data-cal-namespace="peinado"
+          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+          class="glow-button text-on-primary px-8 py-4 rounded-full font-semibold text-base border-none cursor-pointer">
+          Agenda tu Cita
+        </button>
+        <a href="#gallery" class="border-2 border-primary text-primary hover:bg-primary hover:text-on-primary transition-colors px-8 py-4 rounded-full font-semibold text-base no-underline">
+          Ver Galería
+        </a>
       </div>
-      <div class="flex items-center gap-[6px] text-[0.82rem] text-[#555]">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E01A4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-        Productos premium
-      </div>
-      <div class="flex items-center gap-[6px] text-[0.82rem] text-[#555]">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E01A4F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-        3+ años de experiencia
+    </div>
+
+    <!-- Right column — NO overflow-hidden on this wrapper -->
+    <div class="relative reveal-right reveal-delay-1">
+      <Image
+        src={heroImg}
+        alt="Caro Sweet MUA — Maquillaje y Peinado profesional en Houston"
+        class="w-full aspect-[4/3] md:aspect-[4/5] object-cover rounded-xl shadow-2xl md:rotate-2 hover:rotate-0 transition-transform duration-700"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <!-- Floating rating card -->
+      <div class="absolute -bottom-10 -left-10 bg-surface-container-lowest p-6 rounded-lg shadow-xl hidden md:block">
+        <div class="flex items-center gap-1 mb-2">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#D4856A" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span class="font-bold text-on-surface text-sm ml-1">4.9/5</span>
+        </div>
+        <p class="text-on-surface-variant text-xs m-0 max-w-[160px]">"El mejor maquillaje que me han hecho. ¡Duró todo el día!"</p>
       </div>
     </div>
   </div>
