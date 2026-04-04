@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import logo from '../assets/images/logo.png';
 ---
 
-<nav class="sticky top-0 z-[100] bg-white border-b border-[#F0E6EA] shadow-[0_1px_8px_rgba(0,0,0,0.06)]">
+<nav class="sticky top-0 z-[100] bg-white border-b border-[#F0E6EA] shadow-[0_1px_8px_rgba(0,0,0,0.06)]" aria-label="Navegación principal">
   <div class="max-w-7xl mx-auto px-12 flex items-center justify-between h-[72px]">
     <a href="/" class="flex items-center no-underline">
       <Image src={logo} alt="Caro Sweet Mua" width={130} height={44} class="object-contain" loading="eager" />
@@ -16,7 +16,7 @@ import logo from '../assets/images/logo.png';
     </div>
     <a href="#contacto"
       class="flex items-center gap-2 bg-primary text-white no-underline px-6 rounded-[21px] text-[0.875rem] font-bold h-[42px] whitespace-nowrap transition-colors duration-200 hover:bg-[#c01543] nav-cta-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
       Reservar cita
     </a>
     <button id="hamburger-btn" class="hamburger-btn" aria-label="Menú" aria-expanded="false">
@@ -34,7 +34,7 @@ import logo from '../assets/images/logo.png';
   <a href="#testimonios" class="mobile-nav-link">Testimonios</a>
   <a href="#contacto" class="mobile-nav-link">Contacto</a>
   <a href="#contacto" class="flex items-center justify-center gap-2 bg-primary text-white no-underline py-[0.8rem] rounded-[21px] text-[0.9rem] font-bold mt-2 hover:bg-[#c01543] transition-colors duration-200">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
     Reservar cita
   </a>
 </div>

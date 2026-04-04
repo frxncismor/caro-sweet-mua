@@ -1,12 +1,41 @@
 ---
 import '../styles/global.css';
+import ScrollReveal from '../components/ScrollReveal.astro';
 
 interface Props {
   title: string;
   description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, canonicalUrl, ogImage } = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Caro Sweet Mua",
+  "url": "https://carosweetmua.com",
+  "telephone": "+528137459614",
+  "image": ogImage,
+  "description": "Maquillista profesional en Monterrey, NL. Maquillaje a domicilio para novias, quinceañeras y looks del día a día.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Monterrey",
+    "addressRegion": "NL",
+    "addressCountry": "MX"
+  },
+  "priceRange": "$$",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    }
+  ],
+  "sameAs": ["https://instagram.com/caro_sweet.mua"]
+};
 ---
 
 <!DOCTYPE html>
@@ -17,17 +46,35 @@ const { title, description } = Astro.props;
   <meta name="description" content={description} />
   <title>{title}</title>
   <link rel="icon" href="/images/logo.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+  <meta property="og:type" content="website" />
+  {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  {ogImage && <meta property="og:image" content={ogImage} />}
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:site_name" content="Caro Sweet Mua" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-white focus:text-[#E01A4F] focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold focus:shadow-lg">Saltar al contenido principal</a>
+  <slot />
   <!-- Cal element-click embed -->
   <script type="text/javascript">
     (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
     Cal("init", "peinado", {origin:"https://app.cal.com"});
     Cal.ns.peinado("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
   </script>
-</head>
-<body>
-  <slot />
+  <ScrollReveal />
 </body>
 </html>

@@ -1,0 +1,30 @@
+# Caro Sweet Mua
+
+Caro Sweet Mua es el sitio web de Carolina, maquillista profesional con sede en Monterrey, Nuevo León, México. Esta landing page presenta sus servicios de maquillaje profesional, peinados y paquetes especiales para novias, quinceañeras, eventos sociales y looks cotidianos, con servicio a domicilio en toda el área metropolitana de Monterrey.
+
+> Professional makeup artist (MUA) landing page for Caro Sweet Mua, based in Monterrey, NL, Mexico. Offers bridal, quinceañera, social event, and everyday makeup services with home visits.
+
+## Servicios
+
+- Maquillaje Profesional — $280 MXN · Ideal para eventos, bodas, quinceañeras y looks del día a día
+- Secados & Peinados — $200 MXN · Peinados profesionales para cualquier ocasión
+- Paquetes Especiales — desde $480 MXN · Combinaciones de maquillaje + peinado con descuento
+
+## Ubicación
+
+Monterrey y área metropolitana, Nuevo León, México.
+Servicio a domicilio disponible.
+
+## Horario
+
+Lunes a Sábado: 9:00 – 20:00
+Domingo: Solo con cita previa
+
+## Contacto
+
+- WhatsApp: +52 81 3745 9614
+- Instagram: @caro_sweet.mua
+
+## Reservaciones
+
+Las citas se agenden directamente a través del sistema de reservaciones integrado en el sitio web (Cal.com).

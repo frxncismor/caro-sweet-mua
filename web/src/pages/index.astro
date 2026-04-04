@@ -17,17 +17,21 @@ import Footer from '../components/Footer.astro';
 <BaseLayout
   title="Caro Sweet Mua — Maquillista Profesional en Monterrey"
   description="Caro Sweet Mua — Maquillista profesional en Monterrey, NL. Maquillaje a domicilio para novias, quinceañeras y looks del día a día. Agenda tu cita hoy."
+  canonicalUrl="https://carosweetmua.com/"
+  ogImage="https://carosweetmua.com/images/og-cover.jpg"
 >
   <Navbar />
-  <HeroSection />
-  <SocialProofStrip />
-  <ServicesSection />
-  <DomicilioSection />
-  <AboutSection />
-  <TestimonialsSection />
-  <GallerySection />
-  <BeforeAfterSection />
-  <BookingSection />
-  <CtaBanner />
-  <Footer />
+  <main id="main-content">
+    <HeroSection />
+    <SocialProofStrip />
+    <ServicesSection />
+    <DomicilioSection />
+    <AboutSection />
+    <TestimonialsSection />
+    <GallerySection />
+    <BeforeAfterSection />
+    <BookingSection />
+    <CtaBanner />
+    <Footer />
+  </main>
 </BaseLayout>
