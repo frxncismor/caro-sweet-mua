@@ -3,18 +3,17 @@ import { Image } from 'astro:assets';
 import logo from '../assets/images/logo.png';
 ---
 
-<header class="glass-nav shadow-[0_4px_30px_rgba(0,0,0,0.03)] fixed top-0 z-50 w-full" aria-label="Navegación principal">
+<header class="glass-nav shadow-[0_4px_30px_rgba(0,0,0,0.04)] fixed top-0 z-50 w-full" aria-label="Navegación principal">
   <div class="max-w-screen-2xl mx-auto px-8 flex justify-between items-center h-24">
-    <a href="/" class="no-underline" title="Caro Sweet MUA — Inicio">
-      <Image src={logo} alt="Caro Sweet MUA" title="Caro Sweet MUA — Makeup & Hair Artist en Houston" width={130} height={44} class="object-contain font-headline font-bold text-on-surface text-2xl" loading="eager" />
+    <a href="/" class="no-underline" title="CB MUA — Inicio">
+      <Image src={logo} alt="CB MUA" title="CB MUA — Makeup & Hair Artist en Monterrey" width={130} height={44} class="object-contain" loading="eager" />
     </a>
 
     <!-- Desktop nav -->
     <nav class="hidden md:flex items-center gap-8" aria-label="Menú principal">
-      <a href="#services" class="text-on-surface-variant hover:text-primary-container transition-colors font-medium text-sm no-underline">Servicios</a>
-      <a href="#about" class="text-on-surface-variant hover:text-primary-container transition-colors font-medium text-sm no-underline">Sobre Mí</a>
-      <a href="#gallery" class="text-on-surface-variant hover:text-primary-container transition-colors font-medium text-sm no-underline">Galería</a>
-      <a href="#reviews" class="text-on-surface-variant hover:text-primary-container transition-colors font-medium text-sm no-underline">Reseñas</a>
+      <a href="#services" class="text-[#6E6E6E] hover:text-[#1C1C1C] transition-colors font-medium text-sm no-underline">Servicios</a>
+      <a href="#about" class="text-[#6E6E6E] hover:text-[#1C1C1C] transition-colors font-medium text-sm no-underline">Sobre Mí</a>
+      <a href="#gallery" class="text-[#6E6E6E] hover:text-[#1C1C1C] transition-colors font-medium text-sm no-underline">Galería</a>
     </nav>
 
     <!-- CTA button desktop -->
@@ -41,7 +40,6 @@ import logo from '../assets/images/logo.png';
   <a href="#services" class="mobile-nav-link">Servicios</a>
   <a href="#about" class="mobile-nav-link">Sobre Mí</a>
   <a href="#gallery" class="mobile-nav-link">Galería</a>
-  <a href="#reviews" class="mobile-nav-link">Reseñas</a>
   <button
     type="button"
     data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado"
@@ -72,7 +70,7 @@ import logo from '../assets/images/logo.png';
     display: block;
     width: 22px;
     height: 2px;
-    background: #1e1b18;
+    background: #1C1C1C;
     border-radius: 2px;
     transition: transform 0.3s, opacity 0.3s;
   }
@@ -86,11 +84,11 @@ import logo from '../assets/images/logo.png';
     top: 96px;
     left: 0;
     right: 0;
-    background: rgba(255, 248, 242, 0.97);
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 49;
-    border-bottom: 1px solid rgba(212, 133, 106, 0.15);
+    border-bottom: 1px solid rgba(217, 217, 217, 0.4);
     box-shadow: 0 8px 20px rgba(0,0,0,0.06);
     padding: 1.25rem 1.5rem;
     flex-direction: column;
@@ -99,14 +97,14 @@ import logo from '../assets/images/logo.png';
   .mobile-menu.open { display: flex; }
   .mobile-nav-link {
     text-decoration: none;
-    color: #53433e;
+    color: #6E6E6E;
     font-size: 1rem;
     font-weight: 500;
     padding: 0.85rem 0;
-    border-bottom: 1px solid rgba(212, 133, 106, 0.1);
+    border-bottom: 1px solid rgba(217, 217, 217, 0.5);
     transition: color 0.2s;
   }
-  .mobile-nav-link:hover { color: #8e4c35; }
+  .mobile-nav-link:hover { color: #1C1C1C; }
 </style>
 
 <script>
