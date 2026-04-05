@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import caroAbout from '../assets/images/caro_3.jpg';
 ---
 
-<section id="about" class="py-20 md:py-32 overflow-hidden">
+<section id="about" class="py-20 md:py-32 overflow-hidden bg-white">
   <div class="container mx-auto px-6 grid md:grid-cols-2 gap-10 md:gap-20 items-center">
     <!-- Left: photo -->
     <div class="reveal-left">
@@ -17,38 +17,35 @@ import caroAbout from '../assets/images/caro_3.jpg';
 
     <!-- Right: content -->
     <div class="flex flex-col gap-5 md:gap-6 reveal-right reveal-delay-1">
-      <p class="text-primary font-semibold tracking-widest uppercase text-sm font-label m-0">Sobre Mí</p>
+      <p class="text-[#6E6E6E] font-semibold tracking-widest uppercase text-sm font-label m-0">Sobre Mí</p>
       <h2 class="font-headline font-bold text-on-surface text-[clamp(1.8rem,3vw,2.4rem)] m-0">
         Hola, soy Caro ✨
       </h2>
-      <p class="text-on-surface-variant font-body text-base leading-relaxed m-0">
-        Soy Carolina, makeup & hair artist con más de 3 años transformando looks en Monterrey, N.L. Me especializo en crear el maquillaje que siempre soñaste: duradero, fotogénico y completamente tuyo.
-      </p>
-      <p class="text-on-surface-variant font-body text-base leading-relaxed m-0">
-        Mi enfoque es editorial pero accesible — quiero que cada clienta se sienta la mejor versión de sí misma. Desde novias hasta looks del día a día, cada cita es única.
+      <p class="text-[#6E6E6E] font-body text-base leading-relaxed m-0">
+        Makeup &amp; hair artist en Monterrey, N.L. Looks naturales y elegantes, pensados para que te sientas tú misma.
       </p>
 
       <!-- Checklist -->
       <div class="flex flex-col gap-3">
         <div class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8e4c35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-          <span class="text-on-surface font-body text-sm">Técnicas certificadas de maquillaje editorial</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+          <span class="text-on-surface font-body text-sm">Productos profesionales</span>
         </div>
         <div class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8e4c35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-          <span class="text-on-surface font-body text-sm">Productos premium: MAC, Charlotte Tilbury, NARS</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+          <span class="text-on-surface font-body text-sm">Servicio en Monterrey y área metropolitana</span>
         </div>
         <div class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8e4c35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-          <span class="text-on-surface font-body text-sm">Servicio en Monterrey y área metropolitana de N.L.</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+          <span class="text-on-surface font-body text-sm">Maquillaje y peinado a domicilio</span>
         </div>
       </div>
 
       <!-- Quote card -->
-      <div class="bg-surface-container-high rounded-md p-6 relative mt-2">
-        <span class="script-font text-4xl text-primary-container absolute -top-4 left-6 select-none" aria-hidden="true">Caro Sweet</span>
-        <p class="text-on-surface-variant font-body text-sm leading-relaxed m-0 pt-4 italic">
-          "Cada persona tiene una belleza única. Mi trabajo es encontrarla y hacerla brillar."
+      <div class="bg-[#F5F5F5] border border-[#D9D9D9] rounded-xl p-6 relative mt-2">
+        <span class="script-font text-4xl text-[#F4CFC9] absolute -top-4 left-6 select-none" aria-hidden="true">CB MUA</span>
+        <p class="text-[#6E6E6E] font-body text-sm leading-relaxed m-0 pt-4 italic">
+          "Mi enfoque es lograr un look que vaya contigo, cuidando cada detalle para que te sientas segura, cómoda y bonita."
         </p>
       </div>
     </div>

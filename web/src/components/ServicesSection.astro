@@ -1,61 +1,116 @@
 ---
-import ServiceCard from './ServiceCard.astro';
-import card1Img from '../assets/images/generated-1775187017791.png';
-import card2Img from '../assets/images/generated-1775187046111.png';
-import card3Img from '../assets/images/generated-1775187063488.png';
+import { Image } from 'astro:assets';
+import img1 from '../assets/images/generated-1775187017791.png';
+import img2 from '../assets/images/generated-1775187063488.png';
+import img3 from '../assets/images/generated-1775187046111.png';
+import img4 from '../assets/images/generated-1775187114555.png';
+import img5 from '../assets/images/generated-1775188098482.png';
 ---
 
 <section id="services" class="py-20 md:py-32 bg-surface">
   <div class="container mx-auto px-6">
     <div class="text-center mb-12 md:mb-16 reveal">
-      <p class="text-primary font-semibold tracking-widest uppercase text-sm font-label m-0 mb-3">Nuestros Servicios</p>
+      <p class="text-primary font-semibold tracking-widest uppercase text-sm font-label m-0 mb-3">Servicios</p>
       <h2 class="font-headline font-bold text-on-surface text-[clamp(1.8rem,3vw,2.8rem)] m-0 mb-4">
-        Servicios & Experiencias
+        Maquillaje & Cabello
       </h2>
       <p class="text-on-surface-variant font-body text-base m-0 max-w-xl mx-auto">
-        Cada servicio está diseñado para resaltar tu belleza única con técnicas profesionales y productos de alta gama.
+        Servicio a domicilio en Monterrey y área metropolitana. El precio de traslado varía según tu zona.
       </p>
     </div>
-    <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-      <div class="reveal-scale reveal-delay-1">
-        <ServiceCard
-          imageSrc={card1Img}
-          imageAlt="Soft Glam Makeup — Maquillaje profesional Monterrey"
-          title="Soft Glam Makeup"
-          description="Un look luminoso y sofisticado que realza tu belleza natural. Perfecto para eventos sociales, bodas y cualquier ocasión especial donde quieras lucir radiante."
-          price="$120"
-        >
-          <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8e4c35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
-          </svg>
-        </ServiceCard>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Maquillaje social -->
+      <div class="bg-white border border-[#D9D9D9] rounded-xl overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal-scale reveal-delay-1">
+        <Image src={img1} alt="Maquillaje social Monterrey" class="w-full h-[180px] object-cover" loading="lazy" />
+        <div class="p-6 flex flex-col gap-3 flex-1">
+          <h3 class="font-headline font-bold text-on-surface text-lg m-0">Maquillaje social</h3>
+          <p class="text-on-surface-variant font-body text-sm leading-relaxed flex-1 m-0">Looks luminosos y duraderos para cualquier evento especial.</p>
+          <div class="flex items-end justify-between pt-4 border-t border-[#D9D9D9] mt-auto">
+            <div>
+              <span class="font-headline font-bold text-on-surface text-2xl">$850</span>
+              <p class="text-on-surface-variant text-xs m-0 mt-0.5">+ traslado según zona</p>
+            </div>
+            <button type="button" data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado" data-cal-namespace="peinado" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="text-on-surface font-semibold text-sm hover:text-on-surface-variant transition-colors bg-transparent border-none cursor-pointer p-0 font-body">
+              Reservar →
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="reveal-scale reveal-delay-2">
-        <ServiceCard
-          imageSrc={card2Img}
-          imageAlt="Hair Styling — Peinado profesional Monterrey"
-          title="Hair Styling"
-          description="Desde ondas románticas hasta recogidos elegantes. Transformamos tu cabello en una obra de arte que complementa perfectamente tu look."
-          price="$85"
-        >
-          <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#795740" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/>
-          </svg>
-        </ServiceCard>
+
+      <!-- Novia / Quinceañera -->
+      <div class="bg-white border border-[#D9D9D9] rounded-xl overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal-scale reveal-delay-2">
+        <Image src={img2} alt="Maquillaje novia y quinceañera Monterrey" class="w-full h-[180px] object-cover" loading="lazy" />
+        <div class="p-6 flex flex-col gap-3 flex-1">
+          <h3 class="font-headline font-bold text-on-surface text-lg m-0">Novia · Quinceañera</h3>
+          <p class="text-on-surface-variant font-body text-sm leading-relaxed flex-1 m-0">Valoración previa vía mensaje para conocer tu estilo y definir cada detalle del look.</p>
+          <div class="flex items-end justify-between pt-4 border-t border-[#D9D9D9] mt-auto">
+            <div>
+              <span class="font-headline font-bold text-on-surface text-base">Precio a consultar</span>
+              <p class="text-on-surface-variant text-xs m-0 mt-0.5">+ traslado según zona</p>
+            </div>
+            <button type="button" data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado" data-cal-namespace="peinado" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="text-on-surface font-semibold text-sm hover:text-on-surface-variant transition-colors bg-transparent border-none cursor-pointer p-0 font-body">
+              Consultar →
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="reveal-scale reveal-delay-3">
-        <ServiceCard
-          imageSrc={card3Img}
-          imageAlt="Bridal Experience — Maquillaje y peinado para novias Monterrey"
-          title="Bridal Experience"
-          description="El paquete completo para tu día más especial. Maquillaje editorial + peinado + prueba previa para que te veas perfecta desde el primer hasta el último momento."
-          price="$350"
-        >
-          <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#d4856a" stroke="#8e4c35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-          </svg>
-        </ServiceCard>
+
+      <!-- Secado / Wavy / Planchado -->
+      <div class="bg-white border border-[#D9D9D9] rounded-xl overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal-scale reveal-delay-3">
+        <Image src={img3} alt="Secado wavy planchado cabello Monterrey" class="w-full h-[180px] object-cover" loading="lazy" />
+        <div class="p-6 flex flex-col gap-3 flex-1">
+          <h3 class="font-headline font-bold text-on-surface text-lg m-0">Secado · Wavy · Planchado</h3>
+          <p class="text-on-surface-variant font-body text-sm leading-relaxed flex-1 m-0">Acabados profesionales para cada tipo de cabello y ocasión.</p>
+          <div class="flex items-end justify-between pt-4 border-t border-[#D9D9D9] mt-auto">
+            <div>
+              <span class="font-headline font-bold text-on-surface text-2xl">$350</span>
+              <p class="text-on-surface-variant text-xs m-0 mt-0.5">+ traslado según zona</p>
+            </div>
+            <button type="button" data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado" data-cal-namespace="peinado" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="text-on-surface font-semibold text-sm hover:text-on-surface-variant transition-colors bg-transparent border-none cursor-pointer p-0 font-body">
+              Reservar →
+            </button>
+          </div>
+        </div>
       </div>
+
+      <!-- Peinados sueltos -->
+      <div class="bg-white border border-[#D9D9D9] rounded-xl overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal-scale reveal-delay-1">
+        <Image src={img4} alt="Peinados sueltos Monterrey" class="w-full h-[180px] object-cover" loading="lazy" />
+        <div class="p-6 flex flex-col gap-3 flex-1">
+          <h3 class="font-headline font-bold text-on-surface text-lg m-0">Peinados sueltos</h3>
+          <p class="text-on-surface-variant font-body text-sm leading-relaxed flex-1 m-0">Ondas, volumen y estilo para lucir espectacular en cualquier evento.</p>
+          <div class="flex items-end justify-between pt-4 border-t border-[#D9D9D9] mt-auto">
+            <div>
+              <span class="font-headline font-bold text-on-surface text-2xl">$500</span>
+              <p class="text-on-surface-variant text-xs m-0 mt-0.5">+ traslado según zona</p>
+            </div>
+            <button type="button" data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado" data-cal-namespace="peinado" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="text-on-surface font-semibold text-sm hover:text-on-surface-variant transition-colors bg-transparent border-none cursor-pointer p-0 font-body">
+              Reservar →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paquete maquillaje + secado -->
+      <div class="bg-white border border-[#D9D9D9] rounded-xl overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1 transition-all duration-300 reveal-scale reveal-delay-2">
+        <Image src={img5} alt="Paquete maquillaje y secado Monterrey" class="w-full h-[180px] object-cover" loading="lazy" />
+        <div class="p-6 flex flex-col gap-3 flex-1">
+          <h3 class="font-headline font-bold text-on-surface text-lg m-0">Paquete Maquillaje · Secado</h3>
+          <p class="text-on-surface-variant font-body text-sm leading-relaxed flex-1 m-0">Look completo: maquillaje profesional + secado para tu evento.</p>
+          <div class="flex items-end justify-between pt-4 border-t border-[#D9D9D9] mt-auto">
+            <div>
+              <span class="font-headline font-bold text-on-surface text-2xl">$1,150</span>
+              <p class="text-on-surface-variant text-xs m-0 mt-0.5">+ traslado según zona</p>
+            </div>
+            <button type="button" data-cal-link="francisco-javier-moreno-hinojosa-udolb9/peinado" data-cal-namespace="peinado" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="text-on-surface font-semibold text-sm hover:text-on-surface-variant transition-colors bg-transparent border-none cursor-pointer p-0 font-body">
+              Reservar →
+            </button>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

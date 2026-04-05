@@ -13,11 +13,12 @@ const { title, description, canonicalUrl, ogImage } = Astro.props;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "BeautySalon",
-  "name": "Caro Sweet Mua",
+  "name": "CB MUA",
+  "alternateName": ["Caro Beauty Mua", "Caro Sweet Mua", "Caro Mua"],
   "url": "https://caro-sweet-mua.vercel.app",
   "telephone": "+528137459614",
   "image": ogImage,
-  "description": "Maquillista profesional en Monterrey, NL. Maquillaje a domicilio para novias, quinceañeras y looks del día a día.",
+  "description": "Maquillista profesional en Monterrey, NL. Maquillaje y peinado a domicilio para novias, quinceañeras, maquillaje social y paquetes maquillaje/secado.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Monterrey",
@@ -43,10 +44,10 @@ const jsonLd = {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
-  <meta name="keywords" content="maquillista profesional Monterrey, maquillaje a domicilio Monterrey, maquillista novias Monterrey NL, maquillaje quinceañera Monterrey, maquillaje social Monterrey, peinados Monterrey, Caro Sweet Mua, MUA Monterrey Nuevo León" />
+  <meta name="keywords" content="CB MUA, Caro Beauty Mua, Caro Sweet Mua, maquillista profesional Monterrey, maquillaje a domicilio Monterrey, maquillista novias Monterrey NL, maquillaje quinceañera Monterrey, maquillaje social Monterrey, maquillaje editorial Monterrey, peinados sueltos Monterrey, secado cabello Monterrey, wavy Monterrey, planchado Monterrey, paquete maquillaje secado Monterrey, peinados Monterrey, MUA Monterrey Nuevo León, app de maquillaje, maquillaje profesional, cabello Monterrey, paquetes maquillaje" />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="Caro Sweet Mua" />
-  <meta name="publisher" content="Caro Sweet Mua" />
+  <meta name="author" content="CB MUA" />
+  <meta name="publisher" content="CB MUA" />
   <title>{title}</title>
   <link rel="icon" href="/images/logo.png" type="image/png" />
 
@@ -58,7 +59,7 @@ const jsonLd = {
   <meta property="og:description" content={description} />
   {ogImage && <meta property="og:image" content={ogImage} />}
   <meta property="og:locale" content="es_MX" />
-  <meta property="og:site_name" content="Caro Sweet Mua" />
+  <meta property="og:site_name" content="CB MUA" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
@@ -73,7 +74,7 @@ const jsonLd = {
   <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
-  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-primary focus:text-on-primary focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold focus:shadow-lg">Saltar al contenido principal</a>
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-[#1C1C1C] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold focus:shadow-lg">Saltar al contenido principal</a>
   <slot />
   <!-- Cal element-click embed -->
   <script type="text/javascript">
